@@ -5,6 +5,15 @@ import { useState } from "react";
 import HamiltonCharacter from "./components/HamiltonCharacter";
 import ChatBubble from "./components/ChatBubble";
 import VoicePlayer from "./components/VoicePlayer";
+import DebateCaseCard from "./components/DebateCaseCard";
+import { freeSpeechCases } from "./data/FreeSpeechCases";
+import { freedomOfChoiceCases } from "./data/FreedomOfChoiceCases";
+
+// Sub-category lookup table
+const datasets: Record<string, any[]> = {
+  "free-speech": freeSpeechCases,
+  "freedom-of-choice": freedomOfChoiceCases,
+};
 
 // Comprehensive dataset with categories
 const topics = [
@@ -113,7 +122,7 @@ const topics = [
 
 export default function DebateToolsPage() {
   const navigate = useNavigate();
-  const { category } = useParams();
+  const { category, subcategory } = useParams();
   const [showGreeting, setShowGreeting] = useState(false);
   const [showCharacter, setShowCharacter] = useState(false);
   const [audioStarted, setAudioStarted] = useState(false);
@@ -142,6 +151,62 @@ export default function DebateToolsPage() {
     }
   };
 
+  // If subcategory exists, show case cards
+  if (subcategory && datasets[subcategory]) {
+    return (
+      <div className="min-h-screen bg-parchment relative p-10" style={{ backgroundColor: '#f7f3ed', backgroundImage: 'url("/bg.png")', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat' }}>
+        {/* Page Title */}
+        <div className="flex items-center justify-center mb-10">
+          <button
+            onClick={() => navigate("/")}
+            className="text-xl font-constitution font-bold text-[#0f0800] hover:text-red-700 pt-[50px]"
+            style={{ marginLeft: '75px', marginTop: '50px' }}
+          >
+            ← Back
+          </button>
+          <h1 className="text-4xl font-bold text-center text-[#2a1b00] drop-shadow-lg mt-12 flex-1" style={{ marginLeft: '-155px' }}>
+            {subcategory.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())} Cases
+          </h1>
+        </div>
+
+        {/* Show Hamilton character when triggered by card click */}
+        {showCharacter && (
+          <HamiltonCharacter
+            intro={true}
+            size="w-56"
+            onAnimationComplete={handleCharacterReady}
+          />
+        )}
+
+        {/* Show greeting bubble and audio only during greeting sequence */}
+        {showGreeting && (
+          <>
+            <ChatBubble
+              text="Hello friend. Glad you made it."
+              visible={true}
+              position="bottom-[203px] right-16"
+            />
+
+            {audioStarted && (
+              <VoicePlayer
+                src="/audio/hamilton_intro.mp3"
+                onEnded={handleAudioEnded}
+              />
+            )}
+          </>
+        )}
+
+        {/* Grid of case cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 justify-items-center max-w-4xl mx-auto" style={{ marginTop: '65px' }}>
+          {datasets[subcategory].map((card, index) => (
+            <DebateCaseCard key={index} {...card} />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // Otherwise, show sub-category selection
   return (
     <div className="min-h-screen bg-parchment relative p-10">
       {/* Page Title */}
@@ -154,20 +219,8 @@ export default function DebateToolsPage() {
           ← Back
         </button>
         <h1 className="text-4xl font-bold text-center text-[#2a1b00] drop-shadow-lg mt-12 flex-1" style={{ marginLeft: '-155px' }}>
-          Debate Tools
+          {category?.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())} Sections
         </h1>
-      </div>
-
-      {/* Grid of cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 justify-items-center max-w-4xl mx-auto" style={{ marginTop: '65px' }}>
-        {filteredTopics.map((topic, index) => (
-          <DebateCard
-            key={index}
-            title={topic.title}
-            containers={topic.containers}
-            onClick={handleCardClick}
-          />
-        ))}
       </div>
 
       {/* Show Hamilton character when triggered by card click */}
@@ -196,6 +249,18 @@ export default function DebateToolsPage() {
           )}
         </>
       )}
+
+      {/* Grid of sub-category cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 justify-items-center max-w-4xl mx-auto" style={{ marginTop: '65px' }}>
+        {filteredTopics.map((topic, index) => (
+          <DebateCard
+            key={index}
+            title={topic.title}
+            containers={topic.containers}
+            onClick={handleCardClick}
+          />
+        ))}
+      </div>
     </div>
   );
 }

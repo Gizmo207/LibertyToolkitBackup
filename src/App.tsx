@@ -14,7 +14,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tools" element={<DebateToolsPage />} />
-        <Route path="/tools/:category" element={<DebateToolsPage />} /> {/* updated */}
+        <Route path="/tools/:category" element={<DebateToolsPage />} />
+        <Route path="/tools/:category/:subcategory" element={<DebateToolsPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/join" element={<Join />} />

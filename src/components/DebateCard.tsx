@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 type DebateCardProps = {
   title: string;
@@ -8,12 +9,20 @@ type DebateCardProps = {
 
 export default function DebateCard({ title, containers, onClick }: DebateCardProps) {
   const [flipped, setFlipped] = useState(false);
+  const navigate = useNavigate();
+  const { category } = useParams();
 
   const handleFlip = () => setFlipped(!flipped);
 
   const handleClick = () => {
     handleFlip(); // Always flip the card
     onClick?.(); // Call external handler if provided
+
+    // Navigate to subcategory route
+    if (category) {
+      const subcategorySlug = title.toLowerCase().replace(/\s+/g, '-');
+      navigate(`/tools/${category}/${subcategorySlug}`);
+    }
   };
 
   return (
