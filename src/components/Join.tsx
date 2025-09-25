@@ -47,6 +47,7 @@ export default function Join() {
         lastName: formRef.current["lastName"].value,
         email: formRef.current["email"].value,
         phone: formRef.current["phone"].value,
+        student: student ? "Yes" : "No",
         cocAgreed: cocAgreed ? "Yes" : "No",
         initials: initials
       };

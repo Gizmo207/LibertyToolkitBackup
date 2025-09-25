@@ -32,11 +32,12 @@ function setupSheet() {
   sheet.clearConditionalFormatRules();
 
   // Set headers at row 1
-  sheet.getRange(1, 1, 1, 8).setValues([[
+  sheet.getRange(1, 1, 1, 9).setValues([[
     "First Name",
     "Last Name",
     "Email",
     "Phone",
+    "Student?",
     "CoC Agreed",
     "Initials",
     "Status",
