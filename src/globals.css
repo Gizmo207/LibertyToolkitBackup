@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #f7f3ed; /* fallback parchment */
+  color: #1a1a1a;
+}
+
+
+
+
+
+
+
+
+
+/* Parchment background wrapper */
+.bg-parchment {
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  position: relative;
+}
+
+.bg-parchment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2); /* dark overlay */
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+/* Flip utilities */
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
