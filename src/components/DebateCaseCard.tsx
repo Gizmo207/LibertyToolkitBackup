@@ -23,7 +23,7 @@ export default function DebateCaseCard({
 
   return (
     <div
-      className="w-64 h-80 cursor-pointer perspective transition-transform duration-300 hover:scale-105"
+      className="w-64 h-80 cursor-pointer perspective transition-transform duration-300 hover:scale-105 z-10"
       onClick={() => setFlipped(!flipped)}
     >
       <div

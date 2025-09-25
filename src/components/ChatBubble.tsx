@@ -14,7 +14,7 @@ export default function ChatBubble({
   if (!visible) return null;
 
   return (
-    <div className={`absolute ${position} max-w-xs`}>
+    <div className={`absolute ${position} max-w-xs z-50`}>
       <div className="relative inline-block">
         {/* Bubble background */}
         <img

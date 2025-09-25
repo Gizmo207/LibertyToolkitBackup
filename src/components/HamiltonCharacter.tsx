@@ -45,7 +45,7 @@ export default function HamiltonCharacter({
         key={pose} // triggers animation on pose change
         src={`/images/Characters/Hamilton/hamilton_${pose}.png`}
         alt="Hamilton character"
-        className={`absolute bottom-[-10px] right-[-30px] ${size} h-auto drop-shadow-lg`}
+        className={`absolute bottom-[-10px] right-[-30px] ${size} h-auto drop-shadow-lg z-50`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
