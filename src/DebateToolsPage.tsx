@@ -1,7 +1,9 @@
 // DebateToolsPage.tsx
 import DebateCard from "./components/DebateCard";
 import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import HamiltonCharacter from "./components/HamiltonCharacter";
+import ChatBubble from "./components/ChatBubble";
 
 // Comprehensive dataset with categories
 const topics = [
@@ -111,9 +113,15 @@ const topics = [
 export default function DebateToolsPage() {
   const navigate = useNavigate();
   const { category } = useParams();
+  const [showGreeting, setShowGreeting] = useState(true);
 
   // Filter topics by the category, or show all if no category
   const filteredTopics = category ? topics.filter(t => t.category === category) : topics;
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowGreeting(false), 2000); // 2 seconds
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-parchment relative p-10">
@@ -144,7 +152,14 @@ export default function DebateToolsPage() {
 
       {/* Show Hamilton only for Individual Liberty */}
       {category === "individual-liberty" && (
-        <HamiltonCharacter intro={true} size="w-56" />
+        <>
+          <HamiltonCharacter intro={true} size="w-56" />
+          <ChatBubble
+            text="Hello friend. Glad you made it."
+            visible={showGreeting}
+            position="bottom-[203px] right-16"
+          />
+        </>
       )}
     </div>
   );
