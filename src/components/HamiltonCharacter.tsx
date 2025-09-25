@@ -26,10 +26,10 @@ export default function HamiltonCharacter({
         src={`/images/Characters/Hamilton/hamilton_${pose}.png`}
         alt="Hamilton character"
         className={`absolute bottom-[-10px] right-[-30px] ${size} h-auto drop-shadow-lg`}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }} // smooth crossfade with subtle slide
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }} // crossfade timing
       />
     </AnimatePresence>
   );
