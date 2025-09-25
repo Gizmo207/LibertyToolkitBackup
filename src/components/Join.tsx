@@ -47,7 +47,6 @@ export default function Join() {
         lastName: formRef.current["lastName"].value,
         email: formRef.current["email"].value,
         phone: formRef.current["phone"].value,
-        student: student ? "Yes" : "No",
         cocAgreed: cocAgreed ? "Yes" : "No",
         initials: initials
       };
@@ -111,16 +110,6 @@ export default function Join() {
           </div>
           <input type="email" name="email" placeholder="Your Email" required className="w-full p-3 border rounded bg-white/90 text-black" />
           <input type="tel" name="phone" placeholder="Phone Number" required className="w-full p-3 border rounded bg-white/90 text-black" />
-          <div className="flex items-center space-x-2">
-            <input
-              type="checkbox"
-              id="student"
-              checked={student}
-              onChange={(e) => setStudent(e.target.checked)}
-              className="w-4 h-4"
-            />
-            <label htmlFor="student" className="text-sm">I am currently a student</label>
-          </div>
           <textarea name="why" placeholder="Why do you want to join?" required className="w-full p-3 border rounded h-32 bg-white/90 text-black" />
           <input
             type="text"
