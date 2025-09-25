@@ -1,9 +1,10 @@
 // DebateToolsPage.tsx
 import DebateCard from "./components/DebateCard";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HamiltonCharacter from "./components/HamiltonCharacter";
 import ChatBubble from "./components/ChatBubble";
+import VoicePlayer from "./components/VoicePlayer";
 
 // Comprehensive dataset with categories
 const topics = [
@@ -113,15 +114,18 @@ const topics = [
 export default function DebateToolsPage() {
   const navigate = useNavigate();
   const { category } = useParams();
-  const [showGreeting, setShowGreeting] = useState(true);
+  const [showGreeting, setShowGreeting] = useState(false);
+  const [showCharacter, setShowCharacter] = useState(false);
 
   // Filter topics by the category, or show all if no category
   const filteredTopics = category ? topics.filter(t => t.category === category) : topics;
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowGreeting(false), 2000); // 2 seconds
-    return () => clearTimeout(timer);
-  }, []);
+  const handleCardClick = () => {
+    if (!showCharacter) {
+      setShowCharacter(true);
+      setShowGreeting(true);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-parchment relative p-10">
@@ -146,18 +150,28 @@ export default function DebateToolsPage() {
             key={index}
             title={topic.title}
             containers={topic.containers}
+            onClick={handleCardClick}
           />
         ))}
       </div>
 
-      {/* Show Hamilton only for Individual Liberty */}
-      {category === "individual-liberty" && (
+      {/* Show Hamilton character when triggered by card click */}
+      {showCharacter && (
+        <HamiltonCharacter intro={true} size="w-56" />
+      )}
+
+      {/* Show greeting bubble and audio only during greeting sequence */}
+      {showGreeting && (
         <>
-          <HamiltonCharacter intro={true} size="w-56" />
           <ChatBubble
             text="Hello friend. Glad you made it."
-            visible={showGreeting}
+            visible={true}
             position="bottom-[203px] right-16"
+          />
+
+          <VoicePlayer
+            src="/audio/hamilton_intro.mp3"
+            onEnded={() => setShowGreeting(false)}
           />
         </>
       )}

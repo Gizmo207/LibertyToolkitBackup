@@ -3,17 +3,23 @@ import { useState } from "react";
 type DebateCardProps = {
   title: string;
   containers: { label: string; type: string; content: string }[];
+  onClick?: () => void; // Optional external click handler
 };
 
-export default function DebateCard({ title, containers }: DebateCardProps) {
+export default function DebateCard({ title, containers, onClick }: DebateCardProps) {
   const [flipped, setFlipped] = useState(false);
 
   const handleFlip = () => setFlipped(!flipped);
 
+  const handleClick = () => {
+    handleFlip(); // Always flip the card
+    onClick?.(); // Call external handler if provided
+  };
+
   return (
     <div
       className="w-64 h-80 cursor-pointer perspective transition-transform duration-300 hover:scale-105"
-      onClick={handleFlip}
+      onClick={handleClick}
     >
       <div
         className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
