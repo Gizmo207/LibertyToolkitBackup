@@ -116,6 +116,7 @@ export default function DebateToolsPage() {
   const { category } = useParams();
   const [showGreeting, setShowGreeting] = useState(false);
   const [showCharacter, setShowCharacter] = useState(false);
+  const [audioStarted, setAudioStarted] = useState(false);
 
   // Filter topics by the category, or show all if no category
   const filteredTopics = category ? topics.filter(t => t.category === category) : topics;
@@ -124,6 +125,20 @@ export default function DebateToolsPage() {
     if (!showCharacter) {
       setShowCharacter(true);
       setShowGreeting(true);
+    }
+  };
+
+  const handleCharacterReady = () => {
+    // Character is fully loaded in wave pose, now start audio
+    setAudioStarted(true);
+  };
+
+  const handleAudioEnded = () => {
+    // Audio finished, hide greeting and transition character to idle
+    setShowGreeting(false);
+    // Call the stored transition function
+    if ((window as any).hamiltonTransitionToIdle) {
+      (window as any).hamiltonTransitionToIdle();
     }
   };
 
@@ -157,7 +172,11 @@ export default function DebateToolsPage() {
 
       {/* Show Hamilton character when triggered by card click */}
       {showCharacter && (
-        <HamiltonCharacter intro={true} size="w-56" />
+        <HamiltonCharacter
+          intro={true}
+          size="w-56"
+          onAnimationComplete={handleCharacterReady}
+        />
       )}
 
       {/* Show greeting bubble and audio only during greeting sequence */}
@@ -169,10 +188,12 @@ export default function DebateToolsPage() {
             position="bottom-[203px] right-16"
           />
 
-          <VoicePlayer
-            src="/audio/hamilton_intro.mp3"
-            onEnded={() => setShowGreeting(false)}
-          />
+          {audioStarted && (
+            <VoicePlayer
+              src="/audio/hamilton_intro.mp3"
+              onEnded={handleAudioEnded}
+            />
+          )}
         </>
       )}
     </div>
