@@ -20,18 +20,33 @@ function doPost(e) {
       new Date() // Timestamp
     ]);
 
-    // Return success response
+    // Return success response with CORS headers
     return ContentService.createTextOutput(
       JSON.stringify({ result: "success", message: "Member data saved successfully" })
-    ).setMimeType(ContentService.MimeType.JSON);
+    ).setMimeType(ContentService.MimeType.JSON)
+      .setHeader('Access-Control-Allow-Origin', '*')
+      .setHeader('Access-Control-Allow-Methods', 'POST')
+      .setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   } catch (error) {
     // Log the error
     console.error('Error saving member data:', error);
 
-    // Return error response
+    // Return error response with CORS headers
     return ContentService.createTextOutput(
       JSON.stringify({ result: "error", message: error.toString() })
-    ).setMimeType(ContentService.MimeType.JSON);
+    ).setMimeType(ContentService.MimeType.JSON)
+      .setHeader('Access-Control-Allow-Origin', '*')
+      .setHeader('Access-Control-Allow-Methods', 'POST')
+      .setHeader('Access-Control-Allow-Headers', 'Content-Type');
   }
+}
+
+// Handle CORS preflight requests
+function doOptions(e) {
+  return ContentService.createTextOutput('')
+    .setMimeType(ContentService.MimeType.TEXT)
+    .setHeader('Access-Control-Allow-Origin', '*')
+    .setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    .setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }

@@ -2,10 +2,6 @@
 import DebateCard from "./components/DebateCard";
 import { useNavigate, useParams } from "react-router-dom";
 
-
-
-
-
 // Comprehensive dataset with categories
 const topics = [
   // ======================
@@ -110,14 +106,6 @@ const topics = [
     ],
   },
 ];
-
-
-
-
-
-
-
-
 
 export default function DebateToolsPage() {
   const navigate = useNavigate();
