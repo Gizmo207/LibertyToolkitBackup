@@ -1,6 +1,7 @@
 // DebateToolsPage.tsx
 import DebateCard from "./components/DebateCard";
 import { useNavigate, useParams } from "react-router-dom";
+import HamiltonCharacter from "./components/HamiltonCharacter";
 
 // Comprehensive dataset with categories
 const topics = [
@@ -140,6 +141,11 @@ export default function DebateToolsPage() {
           />
         ))}
       </div>
+
+      {/* Show Hamilton only for Individual Liberty */}
+      {category === "individual-liberty" && (
+        <HamiltonCharacter intro={true} size="w-56" />
+      )}
     </div>
   );
 }
