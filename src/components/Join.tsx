@@ -53,7 +53,7 @@ export default function Join() {
       };
 
       // Save to Google Sheets (with CORS handling)
-      fetch("https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbzW63QJktVxoq0np_ZRrD3D1EFqc7qIvd5RCdEKUo5KeC0DpObUtitpWZpikDOgbh18/exec", {
         method: "POST",
         mode: 'no-cors', // Handle CORS issues
         headers: { "Content-Type": "application/json" },
