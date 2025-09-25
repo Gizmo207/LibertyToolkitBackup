@@ -53,7 +53,7 @@ export default function Join() {
       };
 
       // Save to Google Sheets
-      const response = await fetch("https://script.google.com/macros/s/AKfycby5z8l2d6l7L8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8z8/exec", {
+      const response = await fetch("https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)

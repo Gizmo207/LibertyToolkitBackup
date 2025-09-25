@@ -1,7 +1,9 @@
 function doPost(e) {
   try {
-    // Get the active spreadsheet
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    // Use your specific spreadsheet ID
+    var spreadsheetId = "1jsxnHfLsAqnOpZB2gHbBr8r6vADhSSObcftUmwdCU7Q";
+    var spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+    var sheet = spreadsheet.getActiveSheet();
 
     // Parse the incoming data
     var data = JSON.parse(e.postData.contents);
