@@ -8,6 +8,7 @@ export interface DebateCaseCardProps {
   rebuttal: string;
   fastFact: string;
   tpusaTieIn: string;
+  image?: string; // 👈 new optional property
 }
 
 export default function DebateCaseCard({
@@ -18,6 +19,7 @@ export default function DebateCaseCard({
   rebuttal,
   fastFact,
   tpusaTieIn,
+  image,
 }: DebateCaseCardProps) {
   const [flipped, setFlipped] = useState(false);
 
@@ -33,8 +35,19 @@ export default function DebateCaseCard({
       >
         {/* FRONT */}
         <div className="absolute w-full h-full backface-hidden flex flex-col items-center justify-center bg-yellow-100 border-4 border-yellow-700 rounded-lg shadow-lg p-6">
+          {image ? (
+            <img
+              src={image}
+              alt={`${title} graphic`}
+              className="w-20 h-20 mb-4"
+            />
+          ) : null}
           <h2 className="text-2xl font-bold mb-4 text-center">{title}</h2>
-          <p className="text-center text-sm">Click to explore this debate case</p>
+          <p className="text-center text-sm">
+            {principle.length > 100
+              ? principle.substring(0, 100) + "..."
+              : principle}
+          </p>
         </div>
 
         {/* BACK */}
