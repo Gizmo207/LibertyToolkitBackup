@@ -243,7 +243,6 @@ ${corePrinciples.whyItMatters}
                       </p>
                     </div>
 
-                    {/* Core Talking Points Section */}
                     <div className="mb-6 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-600">
                       <h3 className="text-xl font-bold text-blue-800 mb-4">🎯 Core Talking Points</h3>
                       <div className="space-y-3">
@@ -260,7 +259,6 @@ ${corePrinciples.whyItMatters}
                       </div>
                     </div>
 
-                    {/* Why This Matters Section */}
                     <div className="p-6 bg-green-50 rounded-lg border-l-4 border-green-600">
                       <h3 className="text-xl font-bold text-green-800 mb-3">💡 Why This Matters</h3>
                       <p className="text-lg text-gray-800 leading-relaxed">
@@ -269,13 +267,11 @@ ${corePrinciples.whyItMatters}
                     </div>
                   </>
                 ) : (
-                  /* Default modal content for other sections */
                   <div className="p-6 rounded-lg border-l-4 border-current">
                     <h3 className="text-2xl font-semibold mb-4">{modalSection.title}</h3>
                     <div className="text-lg leading-relaxed whitespace-pre-wrap">{modalSection.content}</div>
                   </div>
                 )}
-
                 <div className="flex justify-end mt-8">
                   <button
                     onClick={closeModal}
