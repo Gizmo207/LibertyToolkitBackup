@@ -73,9 +73,7 @@ export default function DebateCaseCard({
         >
           {/* FRONT */}
           <div
-            className={`absolute w-full h-full backface-hidden flex flex-col border-4 border-yellow-700 rounded-lg shadow-lg p-6 ${
-              frontBackgroundImage ? 'bg-black' : 'bg-yellow-100 justify-center items-center'
-            }`}
+            className="absolute w-full h-full backface-hidden flex flex-col items-center justify-center bg-yellow-100 border-4 border-yellow-700 rounded-lg shadow-lg p-6"
             style={frontBackgroundImage ? {
               backgroundImage: `url(${frontBackgroundImage})`,
               backgroundSize: 'cover',
@@ -83,41 +81,30 @@ export default function DebateCaseCard({
               backgroundRepeat: 'no-repeat'
             } : {}}
           >
-            {/* Semi-transparent overlay for better text readability - much lighter now */}
+            {/* Semi-transparent overlay for better text readability */}
             {frontBackgroundImage && (
-              <div className="absolute inset-0 bg-black bg-opacity-20 rounded-lg"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
             )}
 
             {/* Content */}
-            <div className="relative z-10 w-full h-full flex flex-col justify-center items-center">
+            <div className="relative z-10 text-center">
               {image && !frontBackgroundImage ? (
                 <img
                   src={image}
                   alt={`${title} graphic`}
-                  className="w-20 h-20 mb-4 mx-auto"
+                  className="w-20 h-20 mb-4"
                 />
               ) : null}
-
-              {/* Title - moved down 50px */}
-              <div className="flex-shrink-0 mb-4" style={{ marginTop: '50px' }}>
-                <h2 className={`text-2xl font-bold text-center ${
-                  frontBackgroundImage ? 'text-white' : ''
-                }`}>{title}</h2>
-              </div>
-
-              {/* Spacer to push text down */}
-              <div className="flex-grow"></div>
-
-              {/* Principle text positioned at bottom */}
-              <div className="flex-shrink-0 mt-20">
-                <p className={`text-sm text-center ${
-                  frontBackgroundImage ? 'text-white' : ''
-                }`}>
-                  {principle.length > 100
-                    ? principle.substring(0, 100) + "..."
-                    : principle}
-                </p>
-              </div>
+              <h2 className={`text-2xl font-bold mb-4 ${
+                frontBackgroundImage ? 'text-white' : ''
+              }`}>{title}</h2>
+              <p className={`text-sm ${
+                frontBackgroundImage ? 'text-white' : ''
+              }`}>
+                {principle.length > 100
+                  ? principle.substring(0, 100) + "..."
+                  : principle}
+              </p>
             </div>
           </div>
 
@@ -126,12 +113,13 @@ export default function DebateCaseCard({
             <h3 className="text-xl font-bold text-center mb-4">{title}</h3>
 
             {/* Core Principle */}
-            <div
-              className="mb-4 p-3 rounded-lg bg-yellow-100 border-l-4 border-yellow-600 cursor-pointer hover:opacity-80 transition-opacity"
-              onClick={(e) => {
-                e.stopPropagation();
-                if (corePrinciples) {
-                  const content = `
+            <div className="mb-4 p-3 rounded-lg bg-yellow-100 border-l-4 border-yellow-600">
+              <button
+                className="font-semibold text-lg mb-2 text-left w-full hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (corePrinciples) {
+                    const content = `
 **Primary Position:**
 ${corePrinciples.primaryPosition}
 
@@ -140,75 +128,85 @@ ${corePrinciples.talkingPoints.map((point, index) => `${index + 1}. "${point}"`)
 
 **Why This Matters:**
 ${corePrinciples.whyItMatters}
-                  `.trim();
-                  openModal("Core Principles", content, "core-principles");
-                } else {
-                  openModal("Core Principle", principle, "principle");
-                }
-                setModalOpen(true);
-              }}
-            >
-              <h4 className="font-semibold text-lg">Core Principle</h4>
+                    `.trim();
+                    openModal("Core Principles", content, "core-principles");
+                  } else {
+                    openModal("Core Principle", principle, "principle");
+                  }
+                }}
+              >
+                Core Principle
+              </button>
               <p className="text-sm">{principle}</p>
             </div>
 
             {/* The Left's Claim */}
-            <div
-              className="mb-4 p-3 rounded-lg bg-red-100 border-l-4 border-red-600 cursor-pointer hover:opacity-80 transition-opacity"
-              onClick={(e) => {
-                e.stopPropagation();
-                openModal("The Left's Claim", myth, "myth");
-              }}
-            >
-              <h4 className="font-semibold text-lg text-red-700">The Left's Claim</h4>
+            <div className="mb-4 p-3 rounded-lg bg-red-100 border-l-4 border-red-600">
+              <button
+                className="font-semibold text-lg text-red-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openModal("The Left's Claim", myth, "myth");
+                }}
+              >
+                The Left's Claim
+              </button>
               <p className="text-sm italic">{myth}</p>
             </div>
 
             {/* Fact */}
-            <div
-              className="mb-4 p-3 rounded-lg bg-green-100 border-l-4 border-green-600 cursor-pointer hover:opacity-80 transition-opacity"
-              onClick={(e) => {
-                e.stopPropagation();
-                openModal("Fact", fact, "fact");
-              }}
-            >
-              <h4 className="font-semibold text-lg text-green-700">Fact</h4>
+            <div className="mb-4 p-3 rounded-lg bg-green-100 border-l-4 border-green-600">
+              <button
+                className="font-semibold text-lg text-green-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openModal("Fact", fact, "fact");
+                }}
+              >
+                Fact
+              </button>
               <p className="text-sm">{fact}</p>
             </div>
 
             {/* Rebuttal Script */}
-            <div
-              className="mb-4 p-3 rounded-lg bg-blue-100 border-l-4 border-blue-600 cursor-pointer hover:opacity-80 transition-opacity"
-              onClick={(e) => {
-                e.stopPropagation();
-                openModal("Rebuttal Script", `"${rebuttal}"`, "rebuttal");
-              }}
-            >
-              <h4 className="font-semibold text-lg text-blue-700">Rebuttal Script</h4>
+            <div className="mb-4 p-3 rounded-lg bg-blue-100 border-l-4 border-blue-600">
+              <button
+                className="font-semibold text-lg text-blue-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openModal("Rebuttal Script", `"${rebuttal}"`, "rebuttal");
+                }}
+              >
+                Rebuttal Script
+              </button>
               <p className="text-sm">"{rebuttal}"</p>
             </div>
 
             {/* Fast Fact */}
-            <div
-              className="mb-4 p-3 rounded-lg bg-purple-100 border-l-4 border-purple-600 cursor-pointer hover:opacity-80 transition-opacity"
-              onClick={(e) => {
-                e.stopPropagation();
-                openModal("Fast Fact", fastFact, "fastfact");
-              }}
-            >
-              <h4 className="font-semibold text-lg text-purple-700">Fast Fact</h4>
+            <div className="mb-4 p-3 rounded-lg bg-purple-100 border-l-4 border-purple-600">
+              <button
+                className="font-semibold text-lg text-purple-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openModal("Fast Fact", fastFact, "fastfact");
+                }}
+              >
+                Fast Fact
+              </button>
               <p className="text-sm">{fastFact}</p>
             </div>
 
             {/* TPUSA Tie-In */}
-            <div
-              className="mb-4 p-3 rounded-lg bg-gray-100 cursor-pointer hover:opacity-80 transition-opacity"
-              onClick={(e) => {
-                e.stopPropagation();
-                openModal("TPUSA Tie-In", tpusaTieIn, "tiein");
-              }}
-            >
-              <h4 className="font-semibold text-lg">TPUSA Tie-In</h4>
+            <div className="mb-4 p-3 rounded-lg bg-gray-100">
+              <button
+                className="font-semibold text-lg mb-2 text-left w-full hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openModal("TPUSA Tie-In", tpusaTieIn, "tiein");
+                }}
+              >
+                TPUSA Tie-In
+              </button>
               <p className="text-sm">{tpusaTieIn}</p>
             </div>
           </div>
@@ -234,11 +232,10 @@ ${corePrinciples.whyItMatters}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-center mb-8">{title}</h2>
+                <h2 className="text-3xl font-bold text-center mb-8">{modalSection.title}</h2>
 
                 {modalSection.type === 'core-principles' && corePrinciples ? (
                   <>
-                    {/* Primary Position Section */}
                     <div className="mb-6 p-6 bg-yellow-50 rounded-lg border-l-4 border-yellow-600">
                       <h3 className="text-xl font-bold text-yellow-800 mb-3">📍 Primary Position</h3>
                       <p className="text-lg text-gray-800 leading-relaxed">
