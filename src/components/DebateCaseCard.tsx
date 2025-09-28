@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export interface DebateCaseCardProps {
@@ -10,6 +10,7 @@ export interface DebateCaseCardProps {
   fastFact: string;
   tpusaTieIn: string;
   image?: string;
+  frontBackgroundImage?: string;
   corePrinciples?: {
     primaryPosition: string;
     talkingPoints: string[];
@@ -26,6 +27,7 @@ export default function DebateCaseCard({
   fastFact,
   tpusaTieIn,
   image,
+  frontBackgroundImage,
   corePrinciples,
 }: DebateCaseCardProps) {
   const [flipped, setFlipped] = useState(false);
@@ -70,20 +72,51 @@ export default function DebateCaseCard({
           }`}
         >
           {/* FRONT */}
-          <div className="absolute w-full h-full backface-hidden flex flex-col items-center justify-center bg-yellow-100 border-4 border-yellow-700 rounded-lg shadow-lg p-6">
-            {image ? (
-              <img
-                src={image}
-                alt={`${title} graphic`}
-                className="w-20 h-20 mb-4"
-              />
-            ) : null}
-            <h2 className="text-2xl font-bold mb-4 text-center">{title}</h2>
-            <p className="text-center text-sm">
-              {principle.length > 100
-                ? principle.substring(0, 100) + "..."
-                : principle}
-            </p>
+          <div
+            className="absolute w-full h-full backface-hidden flex flex-col justify-center items-center bg-yellow-100 border-4 border-yellow-700 rounded-lg shadow-lg p-6"
+            style={frontBackgroundImage ? {
+              backgroundImage: `url(${frontBackgroundImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            } : {}}
+          >
+            {/* Semi-transparent overlay for better text readability */}
+            {frontBackgroundImage && (
+              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+            )}
+
+            {/* Content */}
+            <div className="relative z-10 w-full h-full flex flex-col">
+              {image && !frontBackgroundImage ? (
+                <img
+                  src={image}
+                  alt={`${title} graphic`}
+                  className="w-20 h-20 mb-4 mx-auto"
+                />
+              ) : null}
+
+              {/* Title - moved down 50px */}
+              <div className="flex-shrink-0 mb-4" style={{ marginTop: '50px' }}>
+                <h2 className={`text-2xl font-bold text-center ${
+                  frontBackgroundImage ? 'text-white' : ''
+                }`}>{title}</h2>
+              </div>
+
+              {/* Spacer to push text down */}
+              <div className="flex-grow"></div>
+
+              {/* Principle text positioned at bottom */}
+              <div className="flex-shrink-0 mt-20">
+                <p className={`text-sm text-center ${
+                  frontBackgroundImage ? 'text-white' : ''
+                }`}>
+                  {principle.length > 100
+                    ? principle.substring(0, 100) + "..."
+                    : principle}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* BACK */}
@@ -96,7 +129,6 @@ export default function DebateCaseCard({
               onClick={(e) => {
                 e.stopPropagation();
                 if (corePrinciples) {
-                  // Show structured core principles
                   const content = `
 **Primary Position:**
 ${corePrinciples.primaryPosition}
@@ -109,7 +141,6 @@ ${corePrinciples.whyItMatters}
                   `.trim();
                   openModal("Core Principles", content, "core-principles");
                 } else {
-                  // Fallback to simple principle text
                   openModal("Core Principle", principle, "principle");
                 }
                 setModalOpen(true);

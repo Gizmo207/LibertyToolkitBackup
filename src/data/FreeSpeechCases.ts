@@ -1,9 +1,9 @@
-// Sample Free Speech case cards
 import { DebateCaseCardProps } from "../components/DebateCaseCard";
 
+// Sample Free Speech case cards
 export const freeSpeechCases: DebateCaseCardProps[] = [
   {
-    title: "TikTok Ban Debate",
+    title: "TikTok Ban",
     principle: "Banning apps isn't protecting freedom — it's censorship in disguise.",
     myth: "Banning TikTok keeps us safe from foreign disinformation.",
     fact: "Censorship doesn't stop propaganda — it just sets a precedent for banning platforms that carry views politicians dislike.",
@@ -11,6 +11,7 @@ export const freeSpeechCases: DebateCaseCardProps[] = [
     fastFact: "Montana passed a statewide TikTok ban in 2023, but courts struck it down as unconstitutional before it took effect.",
     tpusaTieIn: "Free societies don't ban apps — they trust citizens to make their own choices.",
     image: "/images/tiktok_ban.png",
+    frontBackgroundImage: "/images/card_bg_tiktokban.png",
     corePrinciples: {
       primaryPosition: "Government app bans violate the First Amendment and set dangerous precedents for future censorship.",
       talkingPoints: [
