@@ -201,11 +201,51 @@ ${corePrinciples.whyItMatters}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-center mb-6">{title}</h2>
-                <div className="p-6 rounded-lg border-l-4 border-current">
-                  <h3 className="text-2xl font-semibold mb-4">{modalSection.title}</h3>
-                  <div className="text-lg leading-relaxed whitespace-pre-wrap">{modalSection.content}</div>
-                </div>
+                <h2 className="text-3xl font-bold text-center mb-8">{title}</h2>
+
+                {modalSection.type === 'core-principles' && corePrinciples ? (
+                  <>
+                    {/* Primary Position Section */}
+                    <div className="mb-6 p-6 bg-yellow-50 rounded-lg border-l-4 border-yellow-600">
+                      <h3 className="text-xl font-bold text-yellow-800 mb-3">📍 Primary Position</h3>
+                      <p className="text-lg text-gray-800 leading-relaxed">
+                        {corePrinciples.primaryPosition}
+                      </p>
+                    </div>
+
+                    {/* Core Talking Points Section */}
+                    <div className="mb-6 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-600">
+                      <h3 className="text-xl font-bold text-blue-800 mb-4">🎯 Core Talking Points</h3>
+                      <div className="space-y-3">
+                        {corePrinciples.talkingPoints.map((point, index) => (
+                          <div key={index} className="flex items-start">
+                            <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">
+                              {index + 1}
+                            </span>
+                            <p className="text-gray-800 leading-relaxed italic">
+                              "{point}"
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Why This Matters Section */}
+                    <div className="p-6 bg-green-50 rounded-lg border-l-4 border-green-600">
+                      <h3 className="text-xl font-bold text-green-800 mb-3">💡 Why This Matters</h3>
+                      <p className="text-lg text-gray-800 leading-relaxed">
+                        {corePrinciples.whyItMatters}
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  /* Default modal content for other sections */
+                  <div className="p-6 rounded-lg border-l-4 border-current">
+                    <h3 className="text-2xl font-semibold mb-4">{modalSection.title}</h3>
+                    <div className="text-lg leading-relaxed whitespace-pre-wrap">{modalSection.content}</div>
+                  </div>
+                )}
+
                 <div className="flex justify-end mt-8">
                   <button
                     onClick={closeModal}
