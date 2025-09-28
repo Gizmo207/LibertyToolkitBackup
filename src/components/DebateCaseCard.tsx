@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CorePrinciplesSection from "./CorePrinciplesSection";
 
 export interface DebateCaseCardProps {
-  id?: string;
   title: string;
   principle: string;
   myth: string;
@@ -32,16 +30,20 @@ export default function DebateCaseCard({
 }: DebateCaseCardProps) {
   const [flipped, setFlipped] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState<{ title: string; content: string; type: string } | null>(null);
+  const [modalSection, setModalSection] = useState<{
+    title: string;
+    content: string;
+    type: string;
+  } | null>(null);
 
-  const openModal = (title: string, content: string, type: string) => {
-    setModalContent({ title, content, type });
+  const openModal = (sectionTitle: string, content: string, type: string) => {
+    setModalSection({ title: sectionTitle, content, type });
     setModalOpen(true);
   };
 
   const closeModal = () => {
     setModalOpen(false);
-    setModalContent(null);
+    setModalSection(null);
   };
 
   const getSectionColor = (type: string) => {
@@ -95,11 +97,17 @@ export default function DebateCaseCard({
                 e.stopPropagation();
                 if (corePrinciples) {
                   // Show structured core principles
-                  setModalContent({
-                    title: "Core Principles",
-                    content: "structured",
-                    type: "core-principles"
-                  });
+                  const content = `
+**Primary Position:**
+${corePrinciples.primaryPosition}
+
+**Core Talking Points:**
+${corePrinciples.talkingPoints.map((point, index) => `${index + 1}. "${point}"`).join('\n')}
+
+**Why This Matters:**
+${corePrinciples.whyItMatters}
+                  `.trim();
+                  openModal("Core Principles", content, "core-principles");
                 } else {
                   // Fallback to simple principle text
                   openModal("Core Principle", principle, "principle");
@@ -176,7 +184,7 @@ export default function DebateCaseCard({
 
       {/* MODAL */}
       <AnimatePresence>
-        {modalOpen && modalContent && (
+        {modalOpen && modalSection && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -189,25 +197,15 @@ export default function DebateCaseCard({
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className={`bg-white rounded-2xl shadow-2xl max-w-4xl max-h-[80vh] overflow-y-auto ${modalContent.type === 'core-principles' ? 'bg-yellow-50 border-4 border-yellow-200' : getSectionColor(modalContent.type)}`}
+              className={`bg-white rounded-2xl shadow-2xl max-w-2xl max-h-[80vh] overflow-y-auto ${getSectionColor(modalSection.type)}`}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-8">
                 <h2 className="text-3xl font-bold text-center mb-6">{title}</h2>
-
-                {modalContent.type === 'core-principles' && corePrinciples ? (
-                  <CorePrinciplesSection
-                    primaryPosition={corePrinciples.primaryPosition}
-                    talkingPoints={corePrinciples.talkingPoints}
-                    whyItMatters={corePrinciples.whyItMatters}
-                  />
-                ) : (
-                  <div className="p-6 rounded-lg border-l-4 border-current">
-                    <h3 className="text-2xl font-semibold mb-4">{modalContent.title}</h3>
-                    <div className="text-lg leading-relaxed whitespace-pre-wrap">{modalContent.content}</div>
-                  </div>
-                )}
-
+                <div className="p-6 rounded-lg border-l-4 border-current">
+                  <h3 className="text-2xl font-semibold mb-4">{modalSection.title}</h3>
+                  <div className="text-lg leading-relaxed whitespace-pre-wrap">{modalSection.content}</div>
+                </div>
                 <div className="flex justify-end mt-8">
                   <button
                     onClick={closeModal}
