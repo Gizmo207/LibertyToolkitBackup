@@ -73,7 +73,9 @@ export default function DebateCaseCard({
         >
           {/* FRONT */}
           <div
-            className="absolute w-full h-full backface-hidden flex flex-col justify-center items-center bg-yellow-100 border-4 border-yellow-700 rounded-lg shadow-lg p-6"
+            className={`absolute w-full h-full backface-hidden flex flex-col border-4 border-yellow-700 rounded-lg shadow-lg p-6 ${
+              frontBackgroundImage ? 'bg-black' : 'bg-yellow-100 justify-center items-center'
+            }`}
             style={frontBackgroundImage ? {
               backgroundImage: `url(${frontBackgroundImage})`,
               backgroundSize: 'cover',
@@ -81,13 +83,13 @@ export default function DebateCaseCard({
               backgroundRepeat: 'no-repeat'
             } : {}}
           >
-            {/* Semi-transparent overlay for better text readability */}
+            {/* Semi-transparent overlay for better text readability - much lighter now */}
             {frontBackgroundImage && (
-              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-20 rounded-lg"></div>
             )}
 
             {/* Content */}
-            <div className="relative z-10 w-full h-full flex flex-col">
+            <div className="relative z-10 w-full h-full flex flex-col justify-center items-center">
               {image && !frontBackgroundImage ? (
                 <img
                   src={image}
