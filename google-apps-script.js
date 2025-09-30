@@ -32,29 +32,26 @@ function setupSheet() {
   sheet.clearConditionalFormatRules();
 
   // Set headers at row 1
-  sheet.getRange(1, 1, 1, 9).setValues([[
-    "First Name",
-    "Last Name",
+  sheet.getRange(1, 1, 1, 7).setValues([[
     "Email",
-    "Phone",
-    "Student?",
-    "CoC Agreed",
+    "Phone #",
+    "Student ID#",
+    "Active Student?",
+    "Agreed to COC?",
     "Initials",
-    "Status",
-    "Timestamp"
+    "Time Joined"
   ]]);
 
   // Freeze the first row (headers)
   sheet.setFrozenRows(1);
 
   // Auto-resize columns for better readability
-  sheet.autoResizeColumns(1, 9);
+  sheet.autoResizeColumns(1, 7);
 
   // Make headers bold
-  var headerRange = sheet.getRange(1, 1, 1, 9);
+  var headerRange = sheet.getRange(1, 1, 1, 7);
   headerRange.setFontWeight("bold");
 
-  console.log("Sheet setup completed successfully!");
 }
 
 function doPost(e) {
@@ -66,23 +63,22 @@ function doPost(e) {
 
     // Parse the incoming data
     var data = JSON.parse(e.postData.contents);
-
-    // Always mark members as Active (since Join is locked until CoC is signed)
-    var status = "Active";
+    
+    // Debug: Log the received data
+    console.log('Student ID value:', data.studentId);
+    console.log('Student status:', data.student);
 
     // Format the timestamp: MM/DD/YYYY HH:mm:ss
     var timestamp = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "MM/dd/yyyy HH:mm:ss");
 
     // Append the data as a new row
     sheet.appendRow([
-      data.firstName,
-      data.lastName,
       data.email,
       data.phone,
+      data.studentId,
       data.student,
       data.cocAgreed,
       data.initials,
-      status,
       timestamp
     ]);
 

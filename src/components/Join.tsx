@@ -47,6 +47,7 @@ export default function Join() {
         lastName: formRef.current["lastName"].value,
         email: formRef.current["email"].value,
         phone: formRef.current["phone"].value,
+        studentId: formRef.current["studentId"].value,
         student: student ? "Yes" : "No",
         cocAgreed: cocAgreed ? "Yes" : "No",
         initials: initials
@@ -111,6 +112,7 @@ export default function Join() {
           </div>
           <input type="email" name="email" placeholder="Your Email" required className="w-full p-3 border rounded bg-white/90 text-black" />
           <input type="tel" name="phone" placeholder="Phone Number" required className="w-full p-3 border rounded bg-white/90 text-black" />
+          <input type="text" name="studentId" placeholder="SMCC Student ID (if applicable)" className="w-full p-3 border rounded bg-white/90 text-black" />
           <textarea name="why" placeholder="Why do you want to join?" required className="w-full p-3 border rounded h-32 bg-white/90 text-black" />
           <input
             type="text"
