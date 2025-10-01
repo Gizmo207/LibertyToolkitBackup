@@ -73,8 +73,12 @@ export default function DebateCaseCard({
         >
           {/* FRONT */}
           <div
-            className="absolute w-full h-full backface-hidden flex flex-col items-center justify-center bg-yellow-100 border-4 border-yellow-700 rounded-lg shadow-lg p-6"
-            style={frontBackgroundImage ? {
+            className={`absolute backface-hidden flex flex-col items-center justify-center w-full h-full p-6 rounded-lg shadow-lg border-4 ${
+              title === "TikTok Ban"
+                ? "bg-black text-white border-gray-700"
+                : "bg-yellow-100 border-yellow-700"
+            }`}
+            style={frontBackgroundImage && title !== "TikTok Ban" ? {
               backgroundImage: `url(${frontBackgroundImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -82,7 +86,7 @@ export default function DebateCaseCard({
             } : {}}
           >
             {/* Semi-transparent overlay for better text readability */}
-            {frontBackgroundImage && (
+            {frontBackgroundImage && title !== "TikTok Ban" && (
               <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
             )}
 
@@ -95,11 +99,11 @@ export default function DebateCaseCard({
                   className="w-20 h-20 mb-4"
                 />
               ) : null}
-              <h2 className={`text-2xl font-bold mb-4 ${
-                frontBackgroundImage ? 'text-white' : ''
+              <h2 className={`mb-4 text-2xl font-bold ${
+                title === "TikTok Ban" || frontBackgroundImage ? 'text-white' : ''
               }`}>{title}</h2>
               <p className={`text-sm ${
-                frontBackgroundImage ? 'text-white' : ''
+                title === "TikTok Ban" || frontBackgroundImage ? 'text-white' : ''
               }`}>
                 {principle.length > 100
                   ? principle.substring(0, 100) + "..."
