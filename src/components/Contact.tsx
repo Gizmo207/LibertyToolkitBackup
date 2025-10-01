@@ -22,19 +22,19 @@ export default function Contact() {
       }}
     >
       <div className="w-full max-w-4xl mt-[100px]">
-        <div className="flex items-center justify-between mb-8">
-          <button
-            onClick={() => navigate("/")}
-            className="text-xl font-constitution font-bold text-[#0f0800] hover:text-red-700"
-          >
-            ← Home
-          </button>
-          <h1 className="text-4xl sm:text-5xl font-constitution font-bold text-center">Contact Us</h1>
-          <div className="w-16"></div> {/* Spacer for centering */}
-        </div>
+        <button
+          onClick={() => navigate("/")}
+          className="text-xl font-constitution font-bold text-[#0f0800] hover:text-red-700 -mt-[75px]"
+        >
+          ← Home
+        </button>
+
+        <h1 className="text-4xl sm:text-5xl font-constitution font-bold text-center mt-[20px] mb-2">
+          Contact Us
+        </h1>
 
         {/* Contact form */}
-        <form className="space-y-2 max-w-2xl mx-auto mt-[20px]">
+        <form className="space-y-2 max-w-2xl mx-auto mt-0">
           <input
             type="text"
             placeholder="Your Name"
