@@ -24,7 +24,7 @@ export default function Contact() {
       <div className="w-full max-w-4xl mt-[100px]">
         <button
           onClick={() => navigate("/")}
-          className="text-xl font-constitution font-bold text-[#0f0800] hover:text-red-700 -mt-[75px]"
+          className="text-xl font-constitution font-bold text-[#0f0800] hover:text-red-700 -mt-[125px]"
         >
           ← Home
         </button>
