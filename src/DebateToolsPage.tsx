@@ -2,9 +2,6 @@
 import DebateCard from "./components/DebateCard";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import HamiltonCharacter from "./components/HamiltonCharacter";
-import ChatBubble from "./components/ChatBubble";
-import VoicePlayer from "./components/VoicePlayer";
 import DebateCaseCard from "./components/DebateCaseCard";
 import { freeSpeechCases } from "./data/FreeSpeechCases";
 import { freedomOfChoiceCases } from "./data/FreedomOfChoiceCases";
@@ -123,33 +120,9 @@ const topics = [
 export default function DebateToolsPage() {
   const navigate = useNavigate();
   const { category, subcategory } = useParams();
-  const [showGreeting, setShowGreeting] = useState(false);
-  const [showCharacter, setShowCharacter] = useState(false);
-  const [audioStarted, setAudioStarted] = useState(false);
 
   // Filter topics by the category, or show all if no category
   const filteredTopics = category ? topics.filter(t => t.category === category) : topics;
-
-  const handleCardClick = () => {
-    if (!showCharacter) {
-      setShowCharacter(true);
-      setShowGreeting(true);
-    }
-  };
-
-  const handleCharacterReady = () => {
-    // Character is fully loaded in wave pose, now start audio
-    setAudioStarted(true);
-  };
-
-  const handleAudioEnded = () => {
-    // Audio finished, hide greeting and transition character to idle
-    setShowGreeting(false);
-    // Call the stored transition function
-    if ((window as any).hamiltonTransitionToIdle) {
-      (window as any).hamiltonTransitionToIdle();
-    }
-  };
 
   // If subcategory exists, show case cards
   if (subcategory && datasets[subcategory]) {
@@ -169,32 +142,6 @@ export default function DebateToolsPage() {
           </h1>
         </div>
 
-        {/* Show Hamilton character when triggered by card click */}
-        {showCharacter && (
-          <HamiltonCharacter
-            intro={true}
-            size="w-56"
-            onAnimationComplete={handleCharacterReady}
-          />
-        )}
-
-        {/* Show greeting bubble and audio only during greeting sequence */}
-        {showGreeting && (
-          <>
-            <ChatBubble
-              text="Hello friend. Glad you made it."
-              visible={true}
-              position="bottom-[203px] right-16"
-            />
-
-            {audioStarted && (
-              <VoicePlayer
-                src="/audio/hamilton_intro.mp3"
-                onEnded={handleAudioEnded}
-              />
-            )}
-          </>
-        )}
 
         {/* Grid of case cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 justify-items-center max-w-4xl mx-auto" style={{ marginTop: '65px' }}>
@@ -223,32 +170,6 @@ export default function DebateToolsPage() {
         </h1>
       </div>
 
-      {/* Show Hamilton character when triggered by card click */}
-      {showCharacter && (
-        <HamiltonCharacter
-          intro={true}
-          size="w-56"
-          onAnimationComplete={handleCharacterReady}
-        />
-      )}
-
-      {/* Show greeting bubble and audio only during greeting sequence */}
-      {showGreeting && (
-        <>
-          <ChatBubble
-            text="Hello friend. Glad you made it."
-            visible={true}
-            position="bottom-[203px] right-16"
-          />
-
-          {audioStarted && (
-            <VoicePlayer
-              src="/audio/hamilton_intro.mp3"
-              onEnded={handleAudioEnded}
-            />
-          )}
-        </>
-      )}
 
       {/* Grid of sub-category cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 justify-items-center max-w-4xl mx-auto" style={{ marginTop: '65px' }}>
@@ -257,7 +178,6 @@ export default function DebateToolsPage() {
             key={index}
             title={topic.title}
             containers={topic.containers}
-            onClick={handleCardClick}
           />
         ))}
       </div>
