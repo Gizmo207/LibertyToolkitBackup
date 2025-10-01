@@ -73,12 +73,12 @@ export default function DebateCaseCard({
         >
           {/* FRONT */}
           <div
-            className={`absolute backface-hidden flex flex-col items-center justify-center w-full h-full p-6 rounded-lg shadow-lg border-4 ${
+            className={`absolute backface-hidden flex flex-col items-center justify-between w-full h-full rounded-lg shadow-lg border-4 ${
               title === "TikTok Ban"
                 ? "bg-black text-white border-gray-700"
                 : "bg-yellow-100 border-yellow-700"
             }`}
-            style={frontBackgroundImage && title !== "TikTok Ban" ? {
+            style={frontBackgroundImage ? {
               backgroundImage: `url(${frontBackgroundImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -90,18 +90,22 @@ export default function DebateCaseCard({
               <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
             )}
 
-            {/* Content */}
-            <div className="relative z-10 text-center">
+            {/* Title at top */}
+            <div className="relative z-10 w-full text-center" style={{ paddingTop: '4px', paddingLeft: '24px', paddingRight: '24px' }}>
+              <h2 className={`text-2xl font-bold ${
+                title === "TikTok Ban" || frontBackgroundImage ? 'text-white' : ''
+              }`}>{title}</h2>
+            </div>
+
+            {/* Principle text at bottom */}
+            <div className="relative z-10 w-full text-center" style={{ paddingBottom: '24px', paddingLeft: '24px', paddingRight: '24px' }}>
               {image && !frontBackgroundImage ? (
                 <img
                   src={image}
                   alt={`${title} graphic`}
-                  className="w-20 h-20 mb-4"
+                  className="w-20 h-20 mb-4 mx-auto"
                 />
               ) : null}
-              <h2 className={`mb-4 text-2xl font-bold ${
-                title === "TikTok Ban" || frontBackgroundImage ? 'text-white' : ''
-              }`}>{title}</h2>
               <p className={`text-sm ${
                 title === "TikTok Ban" || frontBackgroundImage ? 'text-white' : ''
               }`}>
