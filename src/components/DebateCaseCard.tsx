@@ -148,16 +148,29 @@ ${corePrinciples.whyItMatters}
               <p className="text-sm">{principle}</p>
             </div>
 
-            {/* The Left's Claim */}
+            {/* Opposition Claim (TikTok Ban) / The Left's Claim (others) */}
             <div className="mb-4 p-3 rounded-lg bg-red-100 border-l-4 border-red-600">
               <button
                 className="font-semibold text-lg text-red-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
                 onClick={(e) => {
                   e.stopPropagation();
-                  openModal("The Left's Claim", myth, "myth");
+                  if (title === "TikTok Ban") {
+                    const content = `**Summary**  
+Supporters of banning TikTok argue that the platform poses a major national security risk due to its ties to the Chinese Communist Party. They claim the app harvests sensitive data from millions of Americans and could be exploited to spread propaganda, manipulate elections, or conduct surveillance. From this perspective, a ban is a necessary step to protect U.S. privacy and sovereignty.  
+
+**Supporting Points**  
+- 🕵️ **Data Harvesting:** TikTok collects vast amounts of personal information, which critics say could be accessed by the Chinese government.  
+- 🛰️ **National Security Threat:** Lawmakers warn the CCP could weaponize TikTok for espionage, surveillance, or cyberattacks.  
+- 📢 **Propaganda Tool:** The app may be used to influence U.S. public opinion, particularly among young voters, by promoting pro-China narratives or suppressing dissenting content.  
+- 🇨🇳 **Foreign Ownership:** Because TikTok’s parent company, ByteDance, is headquartered in China, advocates argue the app is inherently compromised.  
+- 🌍 **Global Precedent:** Other countries — including India and Canada — have restricted or banned TikTok, which ban supporters say shows the U.S. must act as well.`.trim();
+                    openModal("Opposition Claim", content, "myth");
+                  } else {
+                    openModal("The Left's Claim", myth, "myth");
+                  }
                 }}
               >
-                The Left's Claim
+                {title === "TikTok Ban" ? "Opposition Claim" : "The Left's Claim"}
               </button>
               <p className="text-sm italic">{myth}</p>
             </div>
