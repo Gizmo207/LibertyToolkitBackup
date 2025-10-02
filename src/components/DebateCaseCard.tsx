@@ -50,13 +50,33 @@ export default function DebateCaseCard({
 
   const getSectionColor = (type: string) => {
     switch (type) {
-      case 'principle': return 'bg-yellow-100 border-yellow-600 text-yellow-800';
-      case 'myth': return 'bg-red-100 border-red-600 text-red-800';
-      case 'fact': return 'bg-green-100 border-green-600 text-green-800';
-      case 'rebuttal': return 'bg-blue-100 border-blue-600 text-blue-800';
-      case 'fastfact': return 'bg-purple-100 border-purple-600 text-purple-800';
-      case 'tiein': return 'bg-gray-100 border-gray-600 text-gray-800';
-      default: return 'bg-gray-100 border-gray-600 text-gray-800';
+      case 'principle': return 'bg-yellow-100 border-yellow-600';
+      case 'myth': return 'bg-red-100 border-red-600';
+      case 'fact': return 'bg-green-100 border-green-600';
+      case 'rebuttal': return 'bg-blue-100 border-blue-600';
+      case 'fastfact': return 'bg-purple-100 border-purple-600';
+      case 'tiein': return 'bg-gray-100 border-gray-600';
+      default: return 'bg-gray-100 border-gray-600';
+    }
+  };
+
+  // Accent styling for modal content sections (title color + left border color)
+  const getTypeAccent = (type: string): { titleClass: string; borderClass: string } => {
+    switch (type) {
+      case 'principle':
+        return { titleClass: 'text-yellow-700', borderClass: 'border-yellow-600' };
+      case 'myth':
+        return { titleClass: 'text-red-700', borderClass: 'border-red-600' };
+      case 'fact':
+        return { titleClass: 'text-green-700', borderClass: 'border-green-600' };
+      case 'rebuttal':
+        return { titleClass: 'text-blue-700', borderClass: 'border-blue-600' };
+      case 'fastfact':
+        return { titleClass: 'text-purple-700', borderClass: 'border-purple-600' };
+      case 'tiein':
+        return { titleClass: 'text-gray-700', borderClass: 'border-gray-600' };
+      default:
+        return { titleClass: 'text-gray-800', borderClass: 'border-gray-600' };
     }
   };
 
@@ -288,10 +308,44 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                     </div>
                   </>
                 ) : (
-                  <div className="p-6 rounded-lg border-l-4 border-current">
-                    <h3 className="text-2xl font-semibold mb-4">{modalSection.title}</h3>
-                    <div className="text-lg leading-relaxed whitespace-pre-wrap">{modalSection.content}</div>
-                  </div>
+                  modalSection.title === 'Opposition Claim' ? (
+                    <div className="p-6 rounded-lg border-l-4 border-red-600">
+                      <h3 className="text-2xl font-semibold mb-6 text-red-700">Opposition Claim</h3>
+                      <div className="space-y-6">
+                        <section>
+                          <h4 className="text-lg font-semibold text-red-700 mb-2">Summary</h4>
+                          <p className="text-lg leading-relaxed text-gray-800">
+                            Supporters of banning TikTok argue that the platform poses a major national security risk due to its ties to the Chinese Communist Party. They claim the app harvests sensitive data from millions of Americans and could be exploited to spread propaganda, manipulate elections, or conduct surveillance. From this perspective, a ban is a necessary step to protect U.S. privacy and sovereignty.
+                          </p>
+                        </section>
+                        <section>
+                          <h4 className="text-lg font-semibold text-red-700 mb-3">Supporting Points</h4>
+                          <ul className="list-disc pl-6 space-y-2">
+                            <li className="text-gray-800 text-lg">
+                              🕵️ <span className="font-semibold">Data Harvesting:</span> TikTok collects vast amounts of personal information, which critics say could be accessed by the Chinese government.
+                            </li>
+                            <li className="text-gray-800 text-lg">
+                              🛰️ <span className="font-semibold">National Security Threat:</span> Lawmakers warn the CCP could weaponize TikTok for espionage, surveillance, or cyberattacks.
+                            </li>
+                            <li className="text-gray-800 text-lg">
+                              📢 <span className="font-semibold">Propaganda Tool:</span> The app may be used to influence U.S. public opinion, particularly among young voters, by promoting pro-China narratives or suppressing dissenting content.
+                            </li>
+                            <li className="text-gray-800 text-lg">
+                              🇨🇳 <span className="font-semibold">Foreign Ownership:</span> Because TikTok’s parent company, ByteDance, is headquartered in China, advocates argue the app is inherently compromised.
+                            </li>
+                            <li className="text-gray-800 text-lg">
+                              🌍 <span className="font-semibold">Global Precedent:</span> Other countries — including India and Canada — have restricted or banned TikTok, which ban supporters say shows the U.S. must act as well.
+                            </li>
+                          </ul>
+                        </section>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className={`p-6 rounded-lg border-l-4 ${getTypeAccent(modalSection.type).borderClass}`}>
+                      <h3 className={`text-2xl font-semibold mb-4 ${getTypeAccent(modalSection.type).titleClass}`}>{modalSection.title}</h3>
+                      <div className="text-lg leading-relaxed whitespace-pre-wrap text-gray-800">{modalSection.content}</div>
+                    </div>
+                  )
                 )}
                 <div className="flex justify-end mt-8">
                   <button
