@@ -460,42 +460,42 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                           <li>
                             <div className="space-y-2">
                               <p className="text-red-400 font-semibold">Misconception #1 — “TikTok is owned and controlled by the Chinese Communist Party.”</p>
-                              <p className="text-gray-900"><span className="text-green-400 font-semibold">Reality Check:</span> TikTok is owned by ByteDance, a private company incorporated in the Cayman Islands with offices in Beijing and Singapore. While China has influence over domestic tech, there is <span className="font-semibold">no verified evidence</span> the CCP directly controls TikTok’s operations or accesses U.S. data.</p>
+                              <p className="text-gray-900"><span className="text-green-700 font-semibold">Reality Check:</span> TikTok is owned by ByteDance, a private company incorporated in the Cayman Islands with offices in Beijing and Singapore. While China has influence over domestic tech, there is <span className="font-semibold">no verified evidence</span> the CCP directly controls TikTok’s operations or accesses U.S. data.</p>
                               <p className="text-sm text-gray-600"><span className="font-semibold">Source:</span> Congressional testimony of CEO Shou Zi Chew, March 2023 — “TikTok is not owned or controlled by the Chinese government.”</p>
                             </div>
                           </li>
                           <li>
                             <div className="space-y-2">
                               <p className="text-red-400 font-semibold">Misconception #2 — “TikTok automatically sends U.S. user data to China.”</p>
-                              <p className="text-gray-900"><span className="text-green-400 font-semibold">Reality Check:</span> TikTok stores American data on servers in the U.S. and Singapore, managed through “Project Texas” in partnership with Oracle. Independent audits found <span className="font-semibold">no public proof</span> that Chinese authorities receive this data.</p>
+                              <p className="text-gray-900"><span className="text-green-700 font-semibold">Reality Check:</span> TikTok stores American data on servers in the U.S. and Singapore, managed through “Project Texas” in partnership with Oracle. Independent audits found <span className="font-semibold">no public proof</span> that Chinese authorities receive this data.</p>
                               <p className="text-sm text-gray-600"><span className="font-semibold">Source:</span> Reuters, “TikTok’s U.S. data storage efforts,” 2024.</p>
                             </div>
                           </li>
                           <li>
                             <div className="space-y-2">
                               <p className="text-red-400 font-semibold">Misconception #3 — “Banning TikTok will protect Americans from data theft.”</p>
-                              <p className="text-gray-900"><span className="text-green-400 font-semibold">Reality Check:</span> Every major social app — including Meta, Google, and Snapchat — collects massive amounts of user data. Singling out one company doesn’t fix privacy; comprehensive <span className="font-semibold">data-protection laws</span> do.</p>
+                              <p className="text-gray-900"><span className="text-green-700 font-semibold">Reality Check:</span> Every major social app — including Meta, Google, and Snapchat — collects massive amounts of user data. Singling out one company doesn’t fix privacy; comprehensive <span className="font-semibold">data-protection laws</span> do.</p>
                               <p className="text-sm text-gray-600"><span className="font-semibold">Source:</span> Electronic Frontier Foundation (EFF), “TikTok Ban Won’t Fix U.S. Privacy Problems,” 2024.</p>
                             </div>
                           </li>
                           <li>
                             <div className="space-y-2">
                               <p className="text-red-400 font-semibold">Misconception #4 — “TikTok spreads CCP propaganda to manipulate American voters.”</p>
-                              <p className="text-gray-900"><span className="text-green-400 font-semibold">Reality Check:</span> No confirmed study shows coordinated Chinese propaganda campaigns through TikTok’s algorithm. Most viral content is user-generated entertainment or commentary. TikTok’s recommendation system is opaque — but so are all major platforms’.</p>
+                              <p className="text-gray-900"><span className="text-green-700 font-semibold">Reality Check:</span> No confirmed study shows coordinated Chinese propaganda campaigns through TikTok’s algorithm. Most viral content is user-generated entertainment or commentary. TikTok’s recommendation system is opaque — but so are all major platforms’.</p>
                               <p className="text-sm text-gray-600"><span className="font-semibold">Source:</span> MIT Technology Review, “No evidence TikTok promotes pro-China content,” 2023.</p>
                             </div>
                           </li>
                           <li>
                             <div className="space-y-2">
                               <p className="text-red-400 font-semibold">Misconception #5 — “Other countries banned TikTok, so the U.S. should too.”</p>
-                              <p className="text-gray-900"><span className="text-green-400 font-semibold">Reality Check:</span> India’s and Canada’s restrictions apply mainly to <span className="font-semibold">government-issued devices</span>, not private citizens. The U.S. ban proposal is broader — affecting all users — and faces <span className="font-semibold">First Amendment challenges</span> unseen in those countries.</p>
+                              <p className="text-gray-900"><span className="text-green-700 font-semibold">Reality Check:</span> India’s and Canada’s restrictions apply mainly to <span className="font-semibold">government-issued devices</span>, not private citizens. The U.S. ban proposal is broader — affecting all users — and faces <span className="font-semibold">First Amendment challenges</span> unseen in those countries.</p>
                               <p className="text-sm text-gray-600"><span className="font-semibold">Source:</span> BBC News, 2024.</p>
                             </div>
                           </li>
                           <li>
                             <div className="space-y-2">
                               <p className="text-red-400 font-semibold">Misconception #6 — “If you oppose the ban, you’re defending China.”</p>
-                              <p className="text-gray-900"><span className="text-green-400 font-semibold">Reality Check:</span> Opposing government censorship isn’t defending China — it’s defending the U.S. Constitution. Americans can oppose foreign influence <span className="font-semibold">and</span> reject federal control over speech platforms at the same time.</p>
+                              <p className="text-gray-900"><span className="text-green-700 font-semibold">Reality Check:</span> Opposing government censorship isn’t defending China — it’s defending the U.S. Constitution. Americans can oppose foreign influence <span className="font-semibold">and</span> reject federal control over speech platforms at the same time.</p>
                               <p className="text-sm text-gray-600"><span className="font-semibold">Source:</span> ACLU Statement on TikTok Ban Bill, 2024.</p>
                             </div>
                           </li>
