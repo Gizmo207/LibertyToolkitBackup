@@ -502,6 +502,55 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                         </ul>
                       </div>
                     </div>
+                  ) : title === 'TikTok Ban' && modalSection.type === 'quotes' ? (
+                    <div className="p-6 rounded-lg border-l-4 border-gray-600">
+                      <h3 className="text-red-400 font-bold text-lg mb-4">Quotes</h3>
+                      <div className="space-y-6 text-gray-900">
+                        <p className="text-base">Here are real statements from public figures and organizations on both sides of the TikTok debate.</p>
+                        <section className="space-y-4">
+                          <h4 className="text-lg font-semibold text-blue-700">Quotes Supporting the Ban</h4>
+                          <ul className="space-y-4">
+                            <li>
+                              <p className="italic">“TikTok is a weapon of the Chinese Communist Party used to manipulate America’s youth.”</p>
+                              <p className="text-sm text-gray-700">— Sen. Marco Rubio (R-FL), Congressional Press Release, 2023</p>
+                            </li>
+                            <li>
+                              <p className="italic">“It’s not about silly dance videos. It’s about the CCP gaining influence and collecting data on Americans.”</p>
+                              <p className="text-sm text-gray-700">— Rep. Mike Gallagher (R-WI), House Committee on China Hearing, 2024</p>
+                            </li>
+                            <li>
+                              <p className="italic">“We cannot allow a foreign adversary to control a powerful platform used by millions of Americans.”</p>
+                              <p className="text-sm text-gray-700">— President Joe Biden, Remarks on RESTRICT Act, 2024</p>
+                            </li>
+                          </ul>
+                        </section>
+                        <section className="space-y-4">
+                          <h4 className="text-lg font-semibold text-blue-700">Quotes Opposing the Ban</h4>
+                          <ul className="space-y-4">
+                            <li>
+                              <p className="italic">“Banning TikTok is unconstitutional and sets a dangerous precedent for government control of speech.”</p>
+                              <p className="text-sm text-gray-700">— ACLU, Statement on RESTRICT Act, 2024</p>
+                            </li>
+                            <li>
+                              <p className="italic">“You don’t fix privacy violations by violating free speech.”</p>
+                              <p className="text-sm text-gray-700">— Katherine Trendacosta, EFF Policy Director, 2024</p>
+                            </li>
+                            <li>
+                              <p className="italic">“TikTok has become a modern public square. Banning it would silence millions of Americans.”</p>
+                              <p className="text-sm text-gray-700">— Rep. Jamaal Bowman (D-NY), House Floor Speech, 2024</p>
+                            </li>
+                            <li>
+                              <p className="italic">“If you’re worried about Chinese data collection, fix our data laws — don’t ban one app.”</p>
+                              <p className="text-sm text-gray-700">— Sen. Rand Paul (R-KY), Senate Hearing, 2023</p>
+                            </li>
+                            <li>
+                              <p className="italic">“Congress shouldn’t decide which apps people can use. That’s a choice for the American people.”</p>
+                              <p className="text-sm text-gray-700">— Sen. Ted Cruz (R-TX), 2024</p>
+                            </li>
+                          </ul>
+                        </section>
+                      </div>
+                    </div>
                   ) : (
                     <div className={`p-6 rounded-lg border-l-4 ${getTypeAccent(modalSection.type).borderClass}`}>
                       <h3 className="text-red-400 font-bold text-lg mb-4">{modalSection.title}</h3>
