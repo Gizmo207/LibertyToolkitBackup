@@ -352,7 +352,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                         </section>
                         <section>
                           <h4 className="text-lg font-semibold text-blue-700 mb-4">Rebuttals</h4>
-                          <ul className="space-y-6">
+                          <ol className="list-decimal pl-6 space-y-6">
                             <li className="space-y-2">
                               <ul className="list-disc pl-6 space-y-1">
                                 <li className="text-lg leading-relaxed">
@@ -433,7 +433,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                                 </li>
                               </ul>
                             </li>
-                          </ul>
+                          </ol>
                         </section>
                       </div>
                     </div>
