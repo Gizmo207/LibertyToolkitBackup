@@ -209,16 +209,16 @@ Supporters of banning TikTok argue that the platform poses a major national secu
               <p className="text-sm">{fact}</p>
             </div>
 
-            {/* Rebuttal Script */}
+            {/* Rebuttal */}
             <div className="mb-4 p-3 rounded-lg bg-blue-100 border-l-4 border-blue-600">
               <button
                 className="font-semibold text-lg text-blue-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
                 onClick={(e) => {
                   e.stopPropagation();
-                  openModal("Rebuttal Script", `"${rebuttal}"`, "rebuttal");
+                  openModal("Rebuttal", `"${rebuttal}"`, "rebuttal");
                 }}
               >
-                Rebuttal Script
+                Rebuttal
               </button>
               <p className="text-sm">"{rebuttal}"</p>
             </div>
@@ -342,7 +342,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                     </div>
                   ) : title === 'TikTok Ban' && modalSection.type === 'rebuttal' ? (
                     <div className="p-6 rounded-lg border-l-4 border-blue-600">
-                      <h3 className="text-2xl font-semibold mb-6 text-blue-700">Rebuttal Script</h3>
+                      <h3 className="text-2xl font-semibold mb-6 text-blue-700">Rebuttal</h3>
                       <div className="space-y-8 text-gray-900">
                         <section>
                           <h4 className="text-lg font-semibold text-blue-700 mb-3">Summary</h4>
