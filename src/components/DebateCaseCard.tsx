@@ -235,9 +235,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                 Quotes
               </button>
               <p className="text-sm text-gray-700">
-                {title === "TikTok Ban"
-                  ? "Here are real statements from public figures and organizations on both sides of the TikTok debate."
-                  : "Real statements from public figures and organizations on both sides of the debate."}
+                Real statements from public figures and organizations on both sides of the argument.
               </p>
             </div>
 
