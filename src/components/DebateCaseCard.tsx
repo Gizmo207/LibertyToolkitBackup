@@ -554,6 +554,24 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                         </section>
                       </div>
                     </div>
+                  ) : title === 'TikTok Ban' && modalSection.type === 'fastfact' ? (
+                    <div className="p-6 rounded-lg border-l-4 border-purple-600">
+                      <h3 className="text-red-400 font-bold text-lg mb-4">Fast Facts</h3>
+                      <div className="space-y-4 text-gray-900">
+                        <p className="text-base">Key facts to remember when discussing the TikTok ban debate.</p>
+                        <ul className="list-disc pl-6 space-y-3">
+                          <li>📱 TikTok has over 170 million American users — roughly half of the U.S. population.</li>
+                          <li>🧑‍💻 Around 5 million small businesses use TikTok for marketing and sales.</li>
+                          <li>💰 U.S. TikTok creators earned an estimated $6 billion+ in 2024 from brand partnerships and ad revenue.</li>
+                          <li>⚖️ The RESTRICT Act (2024) grants broad powers to ban tech platforms deemed security threats.</li>
+                          <li>🕵️‍♂️ There is no public evidence that TikTok has shared U.S. user data with the Chinese government.</li>
+                          <li>🗽 A national ban would be the largest restriction on free expression in U.S. digital history.</li>
+                          <li>🌍 Countries like India and Canada have limited TikTok only on government devices, not private citizens.</li>
+                          <li>📉 Polls show 55% of Gen Z Americans oppose a total TikTok ban.</li>
+                          <li>🏛️ The ACLU, EFF, and several First Amendment scholars call the ban “unconstitutional.”</li>
+                        </ul>
+                      </div>
+                    </div>
                   ) : (
                     <div className={`p-6 rounded-lg border-l-4 ${getTypeAccent(modalSection.type).borderClass}`}>
                       <h3 className="text-red-400 font-bold text-lg mb-4">{modalSection.title}</h3>
