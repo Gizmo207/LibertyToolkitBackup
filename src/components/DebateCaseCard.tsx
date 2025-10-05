@@ -340,6 +340,48 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                         </section>
                       </div>
                     </div>
+                  ) : title === 'TikTok Ban' && modalSection.type === 'rebuttal' ? (
+                    <div className="p-6 rounded-lg border-l-4 border-blue-600">
+                      <h3 className="text-2xl font-semibold mb-6 text-blue-700">Rebuttal Script</h3>
+                      <div className="space-y-6 text-gray-800">
+                        <section>
+                          <h4 className="text-lg font-semibold text-blue-700 mb-2">Summary</h4>
+                          <p className="text-lg leading-relaxed">
+                            Use these responses when someone argues in favor of banning TikTok. They emphasize liberty, privacy reform, and constitutional limits on government power.
+                          </p>
+                        </section>
+                        <section>
+                          <h4 className="text-lg font-semibold text-blue-700 mb-3">Rebuttals</h4>
+                          <ul className="space-y-4">
+                            <li>
+                              <p className="text-lg"><span className="font-semibold">Claim:</span> “TikTok is a Chinese spying tool.”</p>
+                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> There’s no verified evidence of data being handed to the CCP. The answer is to strengthen <em>data-privacy laws for all tech companies</em>, not ban speech platforms.</p>
+                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “Regulate data, not speech.”</p>
+                            </li>
+                            <li>
+                              <p className="text-lg"><span className="font-semibold">Claim:</span> “Banning TikTok keeps Americans safe.”</p>
+                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> Safety doesn’t come from censorship. If national security is the concern, address cyber-security directly — don’t give Washington the power to silence apps it dislikes.</p>
+                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “Security shouldn’t mean silence.”</p>
+                            </li>
+                            <li>
+                              <p className="text-lg"><span className="font-semibold">Claim:</span> “Other countries banned TikTok, so we should too.”</p>
+                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> America leads on freedom, not imitation. We don’t copy censorship from abroad — we set the global standard for liberty.</p>
+                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “America sets the standard for freedom.”</p>
+                            </li>
+                            <li>
+                              <p className="text-lg"><span className="font-semibold">Claim:</span> “A ban only targets China, not Americans.”</p>
+                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> The ban punishes 170 million U.S. users and millions of creators, none of whom are the Chinese government. Collective punishment isn’t national security.</p>
+                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “Don’t punish Americans to spite China.”</p>
+                            </li>
+                            <li>
+                              <p className="text-lg"><span className="font-semibold">Claim:</span> “It’s just an app — banning it isn’t censorship.”</p>
+                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> TikTok is a <em>platform for speech</em>. Banning it restricts what Americans can say and hear — exactly what the First Amendment forbids.</p>
+                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “An app for speech is speech.”</p>
+                            </li>
+                          </ul>
+                        </section>
+                      </div>
+                    </div>
                   ) : (
                     <div className={`p-6 rounded-lg border-l-4 ${getTypeAccent(modalSection.type).borderClass}`}>
                       <h3 className={`text-2xl font-semibold mb-4 ${getTypeAccent(modalSection.type).titleClass}`}>{modalSection.title}</h3>
