@@ -195,44 +195,57 @@ Supporters of banning TikTok argue that the platform poses a major national secu
               <p className="text-sm italic">{myth}</p>
             </div>
 
-            {/* Fact */}
-            <div className="mb-4 p-3 rounded-lg bg-green-100 border-l-4 border-green-600">
-              <button
-                className="font-semibold text-lg text-green-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  openModal("Fact", fact, "fact");
-                }}
-              >
-                Fact
-              </button>
-              <p className="text-sm">{fact}</p>
-            </div>
-
-            {/* Rebuttal */}
+            {/* Rebuttal Script */}
             <div className="mb-4 p-3 rounded-lg bg-blue-100 border-l-4 border-blue-600">
               <button
                 className="font-semibold text-lg text-blue-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
                 onClick={(e) => {
                   e.stopPropagation();
-                  openModal("Rebuttal", `"${rebuttal}"`, "rebuttal");
+                  openModal("Rebuttal Script", `"${rebuttal}"`, "rebuttal");
                 }}
               >
-                Rebuttal
+                Rebuttal Script
               </button>
               <p className="text-sm">"{rebuttal}"</p>
             </div>
 
-            {/* Fast Fact */}
+            {/* Common Misconceptions */}
+            <div className="mb-4 p-3 rounded-lg bg-green-100 border-l-4 border-green-600">
+              <button
+                className="font-semibold text-lg text-green-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openModal("Common Misconceptions", fact, "fact");
+                }}
+              >
+                Common Misconceptions
+              </button>
+              <p className="text-sm">{fact}</p>
+            </div>
+
+            {/* Quotes */}
+            <div className="mb-4 p-3 rounded-lg bg-gray-100 border-l-4 border-gray-600">
+              <button
+                className="font-semibold text-lg mb-2 text-left w-full hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openModal("Quotes", "", "quotes");
+                }}
+              >
+                Quotes
+              </button>
+            </div>
+
+            {/* Fast Facts */}
             <div className="mb-4 p-3 rounded-lg bg-purple-100 border-l-4 border-purple-600">
               <button
                 className="font-semibold text-lg text-purple-700 mb-2 text-left w-full hover:opacity-80 transition-opacity"
                 onClick={(e) => {
                   e.stopPropagation();
-                  openModal("Fast Fact", fastFact, "fastfact");
+                  openModal("Fast Facts", fastFact, "fastfact");
                 }}
               >
-                Fast Fact
+                Fast Facts
               </button>
               <p className="text-sm">{fastFact}</p>
             </div>
@@ -310,7 +323,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                 ) : (
                   modalSection.title === 'Opposition Claim' ? (
                     <div className="p-6 rounded-lg border-l-4 border-red-600">
-                      <h3 className="text-2xl font-semibold mb-6 text-red-700">Opposition Claim</h3>
+                      <h3 className="text-red-400 font-bold text-lg mb-6">Opposition Claim</h3>
                       <div className="space-y-6">
                         <section>
                           <h4 className="text-lg font-semibold text-red-700 mb-2">Summary</h4>
@@ -342,7 +355,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                     </div>
                   ) : title === 'TikTok Ban' && modalSection.type === 'rebuttal' ? (
                     <div className="p-6 rounded-lg border-l-4 border-blue-600">
-                      <h3 className="text-2xl font-semibold mb-6 text-blue-700">Rebuttal</h3>
+                      <h3 className="text-red-400 font-bold text-lg mb-6">Rebuttal Script</h3>
                       <div className="space-y-8 text-gray-900">
                         <section>
                           <h4 className="text-lg font-semibold text-blue-700 mb-3">Summary</h4>
@@ -439,7 +452,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                     </div>
                   ) : (
                     <div className={`p-6 rounded-lg border-l-4 ${getTypeAccent(modalSection.type).borderClass}`}>
-                      <h3 className={`text-2xl font-semibold mb-4 ${getTypeAccent(modalSection.type).titleClass}`}>{modalSection.title}</h3>
+                      <h3 className="text-red-400 font-bold text-lg mb-4">{modalSection.title}</h3>
                       <div className="text-lg leading-relaxed whitespace-pre-wrap text-gray-800">{modalSection.content}</div>
                     </div>
                   )
