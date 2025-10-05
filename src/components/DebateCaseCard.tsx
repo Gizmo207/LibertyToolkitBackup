@@ -343,40 +343,95 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                   ) : title === 'TikTok Ban' && modalSection.type === 'rebuttal' ? (
                     <div className="p-6 rounded-lg border-l-4 border-blue-600">
                       <h3 className="text-2xl font-semibold mb-6 text-blue-700">Rebuttal Script</h3>
-                      <div className="space-y-6 text-gray-800">
+                      <div className="space-y-8 text-gray-900">
                         <section>
-                          <h4 className="text-lg font-semibold text-blue-700 mb-2">Summary</h4>
-                          <p className="text-lg leading-relaxed">
+                          <h4 className="text-lg font-semibold text-blue-700 mb-3">Summary</h4>
+                          <p className="text-lg leading-relaxed text-gray-900">
                             Use these responses when someone argues in favor of banning TikTok. They emphasize liberty, privacy reform, and constitutional limits on government power.
                           </p>
                         </section>
                         <section>
-                          <h4 className="text-lg font-semibold text-blue-700 mb-3">Rebuttals</h4>
-                          <ul className="space-y-4">
-                            <li>
-                              <p className="text-lg"><span className="font-semibold">Claim:</span> “TikTok is a Chinese spying tool.”</p>
-                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> There’s no verified evidence of data being handed to the CCP. The answer is to strengthen <em>data-privacy laws for all tech companies</em>, not ban speech platforms.</p>
-                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “Regulate data, not speech.”</p>
+                          <h4 className="text-lg font-semibold text-blue-700 mb-4">Rebuttals</h4>
+                          <ul className="space-y-6">
+                            <li className="space-y-2">
+                              <ul className="list-disc pl-6 space-y-1">
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Claim:</span>
+                                  <span className="ml-2 text-gray-900">“TikTok is a Chinese spying tool.”</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Rebuttal:</span>
+                                  <span className="ml-2 text-gray-900">There’s no verified evidence of data being handed to the CCP. The answer is to strengthen <em>data-privacy laws for all tech companies</em>, not ban speech platforms.</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Key Phrase:</span>
+                                  <span className="ml-2 text-gray-900">“Regulate data, not speech.”</span>
+                                </li>
+                              </ul>
                             </li>
-                            <li>
-                              <p className="text-lg"><span className="font-semibold">Claim:</span> “Banning TikTok keeps Americans safe.”</p>
-                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> Safety doesn’t come from censorship. If national security is the concern, address cyber-security directly — don’t give Washington the power to silence apps it dislikes.</p>
-                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “Security shouldn’t mean silence.”</p>
+                            <li className="space-y-2">
+                              <ul className="list-disc pl-6 space-y-1">
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Claim:</span>
+                                  <span className="ml-2 text-gray-900">“Banning TikTok keeps Americans safe.”</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Rebuttal:</span>
+                                  <span className="ml-2 text-gray-900">Safety doesn’t come from censorship. If national security is the concern, address cyber-security directly — don’t give Washington the power to silence apps it dislikes.</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Key Phrase:</span>
+                                  <span className="ml-2 text-gray-900">“Security shouldn’t mean silence.”</span>
+                                </li>
+                              </ul>
                             </li>
-                            <li>
-                              <p className="text-lg"><span className="font-semibold">Claim:</span> “Other countries banned TikTok, so we should too.”</p>
-                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> America leads on freedom, not imitation. We don’t copy censorship from abroad — we set the global standard for liberty.</p>
-                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “America sets the standard for freedom.”</p>
+                            <li className="space-y-2">
+                              <ul className="list-disc pl-6 space-y-1">
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Claim:</span>
+                                  <span className="ml-2 text-gray-900">“Other countries banned TikTok, so we should too.”</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Rebuttal:</span>
+                                  <span className="ml-2 text-gray-900">America leads on freedom, not imitation. We don’t copy censorship from abroad — we set the global standard for liberty.</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Key Phrase:</span>
+                                  <span className="ml-2 text-gray-900">“America sets the standard for freedom.”</span>
+                                </li>
+                              </ul>
                             </li>
-                            <li>
-                              <p className="text-lg"><span className="font-semibold">Claim:</span> “A ban only targets China, not Americans.”</p>
-                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> The ban punishes 170 million U.S. users and millions of creators, none of whom are the Chinese government. Collective punishment isn’t national security.</p>
-                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “Don’t punish Americans to spite China.”</p>
+                            <li className="space-y-2">
+                              <ul className="list-disc pl-6 space-y-1">
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Claim:</span>
+                                  <span className="ml-2 text-gray-900">“A ban only targets China, not Americans.”</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Rebuttal:</span>
+                                  <span className="ml-2 text-gray-900">The ban punishes 170 million U.S. users and millions of creators, none of whom are the Chinese government. Collective punishment isn’t national security.</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Key Phrase:</span>
+                                  <span className="ml-2 text-gray-900">“Don’t punish Americans to spite China.”</span>
+                                </li>
+                              </ul>
                             </li>
-                            <li>
-                              <p className="text-lg"><span className="font-semibold">Claim:</span> “It’s just an app — banning it isn’t censorship.”</p>
-                              <p className="text-lg"><span className="font-semibold">Rebuttal:</span> TikTok is a <em>platform for speech</em>. Banning it restricts what Americans can say and hear — exactly what the First Amendment forbids.</p>
-                              <p className="text-lg"><span className="font-semibold">Key Phrase:</span> “An app for speech is speech.”</p>
+                            <li className="space-y-2">
+                              <ul className="list-disc pl-6 space-y-1">
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Claim:</span>
+                                  <span className="ml-2 text-gray-900">“It’s just an app — banning it isn’t censorship.”</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Rebuttal:</span>
+                                  <span className="ml-2 text-gray-900">TikTok is a <em>platform for speech</em>. Banning it restricts what Americans can say and hear — exactly what the First Amendment forbids.</span>
+                                </li>
+                                <li className="text-lg leading-relaxed">
+                                  <span className="font-semibold text-blue-700">Key Phrase:</span>
+                                  <span className="ml-2 text-gray-900">“An app for speech is speech.”</span>
+                                </li>
+                              </ul>
                             </li>
                           </ul>
                         </section>
