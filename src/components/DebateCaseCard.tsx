@@ -512,7 +512,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                         <p className="text-base">Here are real statements from public figures and organizations on both sides of the TikTok debate.</p>
                         <section className="space-y-4">
                           <h4 className="text-lg font-semibold text-blue-700">Quotes Supporting the Ban</h4>
-                          <ul className="space-y-4">
+                          <ol className="list-decimal pl-6 space-y-4">
                             <li>
                               <p className="italic">“TikTok is a weapon of the Chinese Communist Party used to manipulate America’s youth.”</p>
                               <p className="text-sm text-gray-700">— Sen. Marco Rubio (R-FL), Congressional Press Release, 2023</p>
@@ -525,11 +525,11 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                               <p className="italic">“We cannot allow a foreign adversary to control a powerful platform used by millions of Americans.”</p>
                               <p className="text-sm text-gray-700">— President Joe Biden, Remarks on RESTRICT Act, 2024</p>
                             </li>
-                          </ul>
+                          </ol>
                         </section>
                         <section className="space-y-4">
                           <h4 className="text-lg font-semibold text-blue-700">Quotes Opposing the Ban</h4>
-                          <ul className="space-y-4">
+                          <ol className="list-decimal pl-6 space-y-4">
                             <li>
                               <p className="italic">“Banning TikTok is unconstitutional and sets a dangerous precedent for government control of speech.”</p>
                               <p className="text-sm text-gray-700">— ACLU, Statement on RESTRICT Act, 2024</p>
@@ -550,7 +550,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                               <p className="italic">“Congress shouldn’t decide which apps people can use. That’s a choice for the American people.”</p>
                               <p className="text-sm text-gray-700">— Sen. Ted Cruz (R-TX), 2024</p>
                             </li>
-                          </ul>
+                          </ol>
                         </section>
                       </div>
                     </div>
