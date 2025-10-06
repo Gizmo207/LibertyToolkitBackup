@@ -254,7 +254,7 @@ Supporters of banning TikTok argue that the platform poses a major national secu
             </div>
 
             {/* TPUSA Tie-In */}
-            <div className="mb-4 p-3 rounded-lg bg-gray-100">
+            <div className="mb-4 p-3 rounded-lg bg-gray-100 border-l-4 border-gray-600">
               <button
                 className="font-semibold text-lg mb-2 text-left w-full hover:opacity-80 transition-opacity"
                 onClick={(e) => {
@@ -570,6 +570,16 @@ Supporters of banning TikTok argue that the platform poses a major national secu
                           <li>📉 Polls show 55% of Gen Z Americans oppose a total TikTok ban.</li>
                           <li>🏛️ The ACLU, EFF, and several First Amendment scholars call the ban “unconstitutional.”</li>
                         </ul>
+                      </div>
+                    </div>
+                  ) : title === 'TikTok Ban' && modalSection.type === 'tiein' ? (
+                    <div className="p-6 rounded-lg border-l-4 border-gray-600">
+                      <h3 className="text-red-400 font-bold text-lg mb-4">Why This Matters to TPUSA</h3>
+                      <div className="space-y-4 text-gray-900">
+                        <p className="leading-relaxed">Free speech and limited government are the cornerstones of American liberty.</p>
+                        <p className="leading-relaxed">The TikTok ban represents a dangerous step toward government control of digital expression — the same censorship principles TPUSA was founded to oppose.</p>
+                        <p className="leading-relaxed">If the government can ban one platform for political or security pretexts, it can silence any citizen or organization next. This debate isn’t about an app — it’s about whether Americans still control their own speech.</p>
+                        <p className="leading-relaxed">TPUSA stands for an open internet, data privacy reform, and defending the First Amendment — no matter the platform.</p>
                       </div>
                     </div>
                   ) : (

@@ -15,14 +15,17 @@ export default function DebateCard({ title, containers, onClick }: DebateCardPro
   const handleFlip = () => setFlipped(!flipped);
 
   const handleClick = () => {
-    handleFlip(); // Always flip the card
-    onClick?.(); // Call external handler if provided
-
-    // Navigate to subcategory route
+    // When viewing subsection cards (category present), navigate without flipping
     if (category) {
+      onClick?.();
       const subcategorySlug = title.toLowerCase().replace(/\s+/g, '-');
       navigate(`/tools/${category}/${subcategorySlug}`);
+      return;
     }
+
+    // Otherwise, allow local flip behavior
+    handleFlip();
+    onClick?.();
   };
 
   return (

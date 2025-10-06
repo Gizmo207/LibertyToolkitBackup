@@ -124,14 +124,33 @@ export default function DebateToolsPage() {
   // Filter topics by the category, or show all if no category
   const filteredTopics = category ? topics.filter(t => t.category === category) : topics;
 
-  // If subcategory exists, show case cards
-  if (subcategory && datasets[subcategory]) {
+  // If subcategory exists, show case cards (always render 9 cards; fill with placeholders if needed)
+  if (subcategory) {
+    const baseCards = datasets[subcategory] ?? [];
+    const placeholdersNeeded = Math.max(0, 9 - baseCards.length);
+    const placeholders = Array.from({ length: placeholdersNeeded }, (_, i) => ({
+      title: "Coming Soon",
+      principle: "",
+      myth: "",
+      fact: "",
+      rebuttal: "",
+      fastFact: "",
+      tpusaTieIn: "",
+    }));
+    const cardsToRender = [...baseCards, ...placeholders];
+
     return (
       <div className="min-h-screen bg-parchment relative p-10" style={{ backgroundColor: '#f7f3ed', backgroundImage: 'url("/bg.png")', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat' }}>
         {/* Page Title */}
         <div className="flex items-center justify-center mb-10">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => {
+              if (window.history.length > 1) {
+                navigate(-1);
+              } else {
+                navigate('/tools');
+              }
+            }}
             className="text-xl font-constitution font-bold text-[#0f0800] hover:text-red-700 pt-[50px]"
             style={{ marginLeft: '75px', marginTop: '50px' }}
           >
@@ -145,7 +164,7 @@ export default function DebateToolsPage() {
 
         {/* Grid of case cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 justify-items-center max-w-4xl mx-auto" style={{ marginTop: '65px' }}>
-          {datasets[subcategory].map((card, index) => (
+          {cardsToRender.map((card, index) => (
             <DebateCaseCard key={index} {...card} />
           ))}
         </div>
@@ -159,7 +178,13 @@ export default function DebateToolsPage() {
       {/* Page Title */}
       <div className="flex items-center justify-center mb-10">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => {
+            if (window.history.length > 1) {
+              navigate(-1);
+            } else {
+              navigate('/tools');
+            }
+          }}
           className="text-xl font-constitution font-bold text-[#0f0800] hover:text-red-700 pt-[50px]"
           style={{ marginLeft: '75px', marginTop: '50px' }}
         >
