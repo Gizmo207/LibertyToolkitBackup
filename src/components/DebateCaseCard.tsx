@@ -83,7 +83,7 @@ export default function DebateCaseCard({
   return (
     <>
       <div
-        className="w-64 h-80 cursor-pointer perspective transition-transform duration-300 hover:scale-105 z-10"
+        className="w-full max-w-xs sm:w-64 h-72 sm:h-80 cursor-pointer perspective transition-transform duration-300 hover:scale-105 z-10"
         onClick={() => setFlipped(!flipped)}
       >
         <div
@@ -285,10 +285,10 @@ Supporters of banning TikTok argue that the platform poses a major national secu
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className={`bg-white rounded-2xl shadow-2xl max-w-2xl max-h-[80vh] overflow-y-auto ${getSectionColor(modalSection.type)}`}
+              className={`w-full sm:w-auto mx-4 sm:mx-0 bg-white rounded-2xl shadow-2xl max-w-2xl max-h-[80vh] overflow-y-auto ${getSectionColor(modalSection.type)}`}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="p-8">
+              <div className="p-4 sm:p-8">
                 <h2 className="text-3xl font-bold text-center mb-8">{modalSection.title}</h2>
 
                 {modalSection.type === 'core-principles' && corePrinciples ? (

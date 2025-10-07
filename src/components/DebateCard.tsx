@@ -30,7 +30,7 @@ export default function DebateCard({ title, containers, onClick }: DebateCardPro
 
   return (
     <div
-      className="w-64 h-80 cursor-pointer perspective transition-transform duration-300 hover:scale-105"
+      className="w-full max-w-xs sm:w-64 h-72 sm:h-80 cursor-pointer perspective transition-transform duration-300 hover:scale-105"
       onClick={handleClick}
     >
       <div

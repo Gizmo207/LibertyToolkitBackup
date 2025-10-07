@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <div
-      className="w-screen min-h-screen bg-black bg-top bg-cover overflow-y-auto"
+      className="w-screen min-h-screen bg-black bg-top bg-cover overflow-x-hidden overflow-y-auto"
       style={{ backgroundImage: "url('/bg.png')" }}
     >
       <Header />
